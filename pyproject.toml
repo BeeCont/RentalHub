@@ -5,3 +5,89 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.2",
+]
+
+[tool.ruff]
+# Maximum line length (like in Black, works with PEP 8).
+line-length = 88
+
+# Number of spaces per indentation level (PEP 8 recommends 4).
+indent-width = 4
+
+# Target Python version for this project.
+target-version = "py314"
+
+# Folders and files to skip checking.
+exclude = [
+    ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg",
+    ".ipynb_checkpoints", ".mypy_cache", ".nox", ".pants.d",
+    ".pyenv", ".pytest_cache", ".pytype", ".ruff_cache", ".svn",
+    ".tox", ".venv", ".vscode", "__pypackages__", "_build",
+    "buck-out", "build", "dist", "node_modules", "site-packages",
+    "venv",
+]
+
+# Follow .gitignore when finding files.
+respect-gitignore = true
+
+# Files to check (standard for Python projects).
+include = ["*.py", "*.pyi"]
+
+# Source code folders.
+src = ["src"]
+
+# Quote style for strings (double, like in Black).
+[tool.ruff.format]
+quote-style = "double"
+
+# Indent style (spaces).
+indent-style = "space"
+
+# Do not remove magic trailing commas in lists.
+skip-magic-trailing-comma = false
+
+# Selected rule groups for linting.
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle: style errors.
+    "F",    # pyflakes: simple bugs.
+    "B",    # flake8-bugbear: advanced bugs.
+    "I",    # isort: import sorting.
+    "DJ",   # flake8-django: Django rules.
+    "UP",   # pyupgrade: code updates.
+    "N",    # pep8-naming: naming styles.
+    "S",    # bandit: security checks.
+    "ANN",  # flake8-annotations: type annotations.
+    "PLR",  # pylint-refactor: refactoring suggestions.
+    "C90",  # mccabe: code complexity checks.
+    "SIM",  # flake8-simplify: suggestions to simplify code.
+    "PERF", # perflint: performance improvements.
+]
+
+# Ignored rules.
+ignore = []
+
+# Rules Ruff can fix automatically.
+fixable = ["ALL"]
+
+# Maximum allowed complexity (10 is a common safe default).
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+# Ignore rules for specific files (relax for migrations and tests).
+[tool.ruff.lint.per-file-ignores]
+"**/migrations/*.py" = [
+    "E501",  # Long lines in migrations.
+    "DJ",    # Django rules in auto code.
+]
+"**/tests/*.py" = [
+    "S101",  # Assert in tests (normal for tests).
+]
+
+# Quote style in docstrings (double).
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
