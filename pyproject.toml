@@ -8,8 +8,16 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "mypy>=1.19.1",
     "ruff>=0.15.2",
 ]
+
+[tool.mypy]
+python_version = 3.14
+
+# Flip on many useful checks at once (strong typing).
+strict = true
+warn_unreachable = true
 
 [tool.ruff]
 # Maximum line length (like in Black, works with PEP 8).
