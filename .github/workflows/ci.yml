@@ -10,3 +10,8 @@ jobs:
   lint:
     name: Lint
     uses: ./.github/workflows/lint.yml
+
+  format:
+    name: Format
+    needs: [lint]
+    uses: ./.github/workflows/format.yml
