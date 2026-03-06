@@ -15,3 +15,8 @@ jobs:
     name: Format
     needs: [lint]
     uses: ./.github/workflows/format.yml
+
+  type-check:
+    name: Type Check
+    needs: [format]
+    uses: ./.github/workflows/type-check.yml
