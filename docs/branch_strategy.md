@@ -140,6 +140,8 @@ They are used for triage, filtering.
 ### Special labels
 
 - `hotfix` – Indicates urgent production fixes and must be handled with highest priority.
+- `ci/cd` – Marks changes related to CI/CD: workflows, reusable workflows, composite actions,
+CI configuration, deployment automation, and related infra (GitHub Actions, pipelines, etc.).
 
 Guidelines:
 - **Every issue and PR must have one `priority:*` label.**
