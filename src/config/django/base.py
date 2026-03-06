@@ -10,16 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
-from pathlib import Path
-
-import environ
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+from config.env import BASE_DIR, env
 
 # Initialize environment variables
-env = environ.Env()
-environ.Env.read_env(BASE_DIR.parent / "env/.env")
+env.read_env(BASE_DIR.parent / "env/.env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -28,7 +22,7 @@ environ.Env.read_env(BASE_DIR.parent / "env/.env")
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", default=False)
+DEBUG = env.bool("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS: list[str] = []
 
@@ -54,7 +48,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "rentalhub.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -71,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "rentalhub.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
