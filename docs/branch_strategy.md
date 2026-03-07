@@ -142,6 +142,7 @@ They are used for triage, filtering.
 - `hotfix` – Indicates urgent production fixes and must be handled with highest priority.
 - `ci/cd` – Marks changes related to CI/CD: workflows, reusable workflows, composite actions,
 CI configuration, deployment automation, and related infra (GitHub Actions, pipelines, etc.).
+- `refactor` – Marks pull requests or issues that restructure or improve existing code without changing external behavior or functionality.
 
 Guidelines:
 - **Every issue and PR must have one `priority:*` label.**
