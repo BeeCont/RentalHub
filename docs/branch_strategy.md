@@ -143,6 +143,7 @@ They are used for triage, filtering.
 - `ci/cd` – Marks changes related to CI/CD: workflows, reusable workflows, composite actions,
 CI configuration, deployment automation, and related infra (GitHub Actions, pipelines, etc.).
 - `refactor` – Marks pull requests or issues that restructure or improve existing code without changing external behavior or functionality.
+- `chore` – Marks maintenance tasks that do not affect application logic, such as updating dependencies, modifying build configuration, or improving project tooling.
 
 Guidelines:
 - **Every issue and PR must have one `priority:*` label.**
